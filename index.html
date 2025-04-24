@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wallet</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <h2>Кошелек</h2>
+        <h4 class="balance"><span>Баланс:</span><i id="i-balance">$0</i></h4>
+      </div>
+      <div class="main">
+        <div class="top row">
+          <div class="container-income-append">
+            <h3>Доход</h3>
+            <div class="wrap-input-select">
+              <select name="" id="income">
+                <option hidden selected disabled>Выберите категорию</option>
+                <option>Зарплата</option>
+                <option>Подарок</option>
+              </select>
+            </div>
+            <div class="wrap-input-text">
+              <label for="">Введите сумму</label>
+              <input id="incomeamount" type="number" />
+            </div>
+            <div class="wrap-button">
+              <button id="incomeadd">Добавить</button>
+            </div>
+          </div>
+          <div class="container-outcome-append">
+            <h3>Расход</h3>
+            <div class="wrap-input-select">
+              <select name="" id="expense">
+                <option hidden selected disabled>Выберите категорию</option>
+                <option>Продукты питания</option>
+                <option>Бытовая техника</option>
+              </select>
+            </div>
+            <div class="wrap-input-text">
+              <label for="">Введите сумму</label>
+              <input id="expenseamount" type="number" />
+            </div>
+            <div class="wrap-button">
+              <button id="expenseadd">Добавить</button>
+            </div>
+          </div>
+        </div>
+        <div class="middle">
+          <div class="container-categories">
+            <h3>Категории</h3>
+            <div>
+              <h4>Доходов</h4>
+              <div class="container-income-list">
+                <span class="badge">
+                  <i>Зарплата</i>
+                  <input type="button" value="🗙" />
+                </span>
+                <span class="badge">
+                  <i>Подарок</i>
+                  <input type="button" value="🗙" />
+                </span>
+              </div>
+            </div>
+            <div>
+              <h4>Расходов</h4>
+              <div class="container-outcome-list">
+                <span class="badge">
+                  <i>Продукты питания</i>
+                  <input type="button" value="🗙" />
+                </span>
+                <span class="badge">
+                  <i>Бытовая техника</i>
+                  <span></span>
+                  <input type="button" value="🗙" />
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom">
+          <h3>История</h3>
+          <div class="transaction-history">
+            <ul>
+              <li class="outcome">$100 <input type="button" value="🗙" /></li>
+              <li class="income">$200 <input type="button" value="🗙" /></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">© 2025 Все права защищены</div>
+    </div>
+    <script src="./js/model.js"></script>
+    <script src="./view/view.js"></script>
+    <script src="./js/controller.js"></script>
+      <script src="./js/model.js"></script>
+    <script src="./view/listeners.js"></script>
+    
+  </body>
+</html>
