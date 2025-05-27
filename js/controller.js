@@ -1,20 +1,37 @@
-// function handleAddNumber(number) {
-//   if (number !== '') {
-//     addNumber(number)
-//     renderDivBalance(numbers)
+// function handleAddTransaction(transaction) {
+//   if (transaction !== '') {
+
+//     addTransactionOutcome(transaction)
+//     addTransactionIncome(transaction)
+//       renderDivBalance(transactions)
+
 //   }
 // }
 
-function handleSumNumbers(number) {
-  if (number !== '') {
-    addNumber(number)
-    sumNumbers(number)
-    renderDivBalance(numbers)
+
+function handleAddIncome(transaction) {
+  if (transaction !== "") {
+    addTransactionIncome(transaction);
+    let sum = sumTransactions();
+    renderDivBalance(sum);
+    renderDivContainerIncomeList(transactions);
+    renderTransactions(transactions);
+    addCategoriesProfit(categoriesProfit);
+
   }
 }
-// function handleAddIncomeHistory(number) {
-//   if (number !== '') {
-//     addIncomeHistory(number)
-//     renderDivBalance(numbers)
-//   }
-// }
+
+function handleAddOutcome(transaction) {
+  if (transaction !== "") {
+    addTransactionOutcome(transaction);
+    let sum = sumTransactions()
+    renderDivBalance(sum);
+    renderDivContainerOutcomeList(transactions);
+    renderTransactions(transactions);
+    addCategoriesLose(categoriesLose);
+    
+
+
+  }
+}
+

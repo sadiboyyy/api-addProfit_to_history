@@ -1,39 +1,129 @@
-function generateIBalance(number) {
-  const elIBalance = document.querySelector('#i-balance')
-  elIBalance.textContent = '$' + number
+// const elSelectIncome = document.querySelector('#income')
+// elSelectIncome.onchange = onChangeInput;
 
-  return elIBalance
+const elButtonOutcome = document.querySelector("#expenseadd");
+elButtonOutcome.onclick = onClickOutcome;
+const elButtonIncome = document.querySelector("#incomeadd");
+elButtonIncome.onclick = onClickIncome;
+
+function renderDivBalance(balance) {
+  const elIBalance = document.querySelector("#i-balance");
+  elIBalance.textContent = "$" + balance;
+
+
 }
 
-function renderDivBalance(numbers) {
 
-  numbers.forEach(number => {
-    const elDivBalance = document.querySelector('.balance')
-    const elINumberBalace = generateIBalance(number)
-    elDivBalance.appendChild(elINumberBalace)
+function generateTransactionIncome(transaction) {
+  const elLiIncome = document.createElement("li");
+  elLiIncome.setAttribute("class", "income");
+  elLiIncome.textContent = "$" + transaction;
+  return elLiIncome;
+}
+function generateTransactionOutcome(transaction) {
+  
+  const elLiOutcome = document.createElement('li')
+  elLiOutcome.setAttribute('class','outcome')
+  elLiOutcome.textContent = '$' + transaction;
+  return elLiOutcome;
+}
+
+function renderTransactions(transactions) {
+  const elDivTransactionHistory = document.querySelector(
+    ".transaction-history > ul");
+  elDivTransactionHistory.innerHTML = ''
+  transactions.forEach(transaction => {
+ 
+    const elLiIncomeProfit = generateTransactionIncome(transaction);
+    const elLiOutcomeLoss = generateTransactionOutcome(transaction)
+    
+    if (transaction > 0) {
+      elDivTransactionHistory.appendChild(elLiIncomeProfit);
+      
+    } else {
+
+      elDivTransactionHistory.appendChild(elLiOutcomeLoss);
+    }
+      
+    
+ 
+  });
+}
+function generateSpanIncome(categoryLose) {
+  const selectIncome = document.querySelector("#income");
+  const elSpanIncome = document.createElement('span')
+  elSpanIncome.setAttribute('class', 'badge')
+  const elI = document.createElement('i')
+   const  textProfit =  selectIncome.value 
+  elI.textContent = textProfit + transaction + '$'
+
+  elSpanIncome.appendChild(elI)
+
+return elSpanIncome
+  
+}
+function generateSpanOutcome(transaction) {
+  const selectOutcome = document.querySelector("#expense");
+  const elSpanOutcome = document.createElement("span");
+  elSpanOutcome.setAttribute("class", "badge");
+  const elI = document.createElement("i");
+  const textLose = selectOutcome.value;
+  elI.textContent = textLose + transaction + "$";
+
+  elSpanOutcome.appendChild(elI);
+
+  return elSpanOutcome;
+}
+function renderDivContainerIncomeList(transactions) {
+  const elDivContainerList = document.querySelector('.container-income-list')
+  elDivContainerList.innerHTML = ''
+  transactions.forEach(transaction => {
+    const elSpanIncome = generateSpanIncome(transaction)
+    elDivContainerList.appendChild(elSpanIncome)
+
+  })
+}
+function renderDivContainerOutcomeList(transactions) {
+  const elDivContainerOutcomeList = document.querySelector('.container-outcome-list')
+  elDivContainerOutcomeList.innerHTML = ''
+  transactions.forEach(transaction => {
+    const elSpanOutcome = generateSpanOutcome(transaction)
+    elDivContainerOutcomeList.appendChild(elSpanOutcome)
+
   })
 
 }
+// function onChangeInput() {
+//   const selectIncome = document.querySelector("#income");
+//   const elIBadge = document.querySelector('.badge > i')
+//   const category = selectIncome.value
+//  elIBadge.textContent = category
+  
+    
+//   }
 
-function renderOutcomeLi(numbers) {
-  const elLiOutcome = document.querySelector('.outcome')
-  elLiOutcome.textContent = numbers
-}
+function onClickIncome() {
+  const incomeAdd = document.querySelector("#incomeamount");
+  const number = incomeAdd.value;
+  if (number > 0) {
+ 
+    handleAddIncome(number);
 
-function renderIncomeLi(numbers) {
-  const elLiIncome = document.querySelector('.income')
-  elLiIncome.textContent = numbers
-}
-
-function addIncomeHistory(history) {
-  if (history === '') return
-  if (history > 0) {
-    renderIncomeLi(history)
-    console.log('ghb')
+    console.log('кнопка инкома нажата');
   }
-  if (history < 0) {
-    renderOutcomeLi(history)
-    console.log('df')
 
+}
+
+function onClickOutcome() {
+  const outcomeAdd = document.querySelector("#expenseamount");
+  
+  const number = outcomeAdd.value
+  if ( number < 0) {
+ 
+    handleAddOutcome(number);
+   
+    // renderTransactions(transactions);
+    console.log('кнопка оуткома нажата')
+    console.log(number)
   }
 }
