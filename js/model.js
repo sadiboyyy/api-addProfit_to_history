@@ -1,46 +1,42 @@
 // const numbers = []
 const categoriesProfit = []
 const categoriesLose = []
-
-const transactions = []
-
-
+const transactions = [
+  // {
+  //   value: 42,
+  //   category: 'доход',
+  // },
+  // {
+  //   value: 33,
+  //   category: 'подарок',
+  // },
+]
 
 function sumTransactions() {
   let sum = 0
   let i = 0
-
-  while (
-
-    i < transactions.length
-
-  ) {
-    sum = sum + transactions[i]
-    
-
-    
+  while (i < transactions.length) {
+    sum = sum + transactions[i].value
     i++
   }
   return sum
-  
 }
 
-
-
-// console.log(numbers[0])
-
-function addTransactionIncome(transaction) {
-  transactions.push(+transaction)
+// profit or income
+function addTransactionIncome(transaction, category) {
+  const object = {
+    value: +transaction,
+    category: category,
+    type: 'profit',
+  }
+  transactions.push(object)
   console.log('добавлен доход')
-  
 }
 
-
+// lose or outcome or expense
 function addTransactionOutcome(transaction) {
-  
   transactions.push(+transaction)
-   console.log('добавлен расход')
-  
+  console.log('добавлен расход')
 }
 
 function addCategoriesProfit(categoryProfit) {
@@ -50,26 +46,10 @@ function addCategoriesProfit(categoryProfit) {
 function addCategoriesLose(categoryLose) {
   categoriesLose.push(categoryLose)
 }
-  
-
-  
-  
-
-transactions 
-
-// addTransactionIncome(5)
-
-// addTransactionOutcome(4)
-// addTransactionOutcome(5)
-// sumTransactions()
-// addTransactionOutcome(7)
-
-let sum = sumTransactions()//После того как візову функцию сум у меня появиться сумма транзакций
-sum
 
 transactions
-console.log(sum)
-// addIncomeHistory(-4)
 
+addTransactionIncome(5, 'зарплата')
+transactions
 
-
+console.log(sumTransactions())
