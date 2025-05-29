@@ -1,12 +1,3 @@
-// function handleAddTransaction(transaction) {
-//   if (transaction !== '') {
-
-//     addTransactionOutcome(transaction)
-//     addTransactionIncome(transaction)
-//       renderDivBalance(transactions)
-
-//   }
-// }
 
 
 function handleAddIncome(transaction) {
@@ -16,7 +7,7 @@ function handleAddIncome(transaction) {
     renderDivBalance(sum);
     renderDivContainerIncomeList(transactions);
     renderTransactions(transactions);
-    addCategoriesProfit(categoriesProfit);
+    // addCategoriesProfit(categoriesProfit);
 
   }
 }
@@ -28,10 +19,25 @@ function handleAddOutcome(transaction) {
     renderDivBalance(sum);
     renderDivContainerOutcomeList(transactions);
     renderTransactions(transactions);
-    addCategoriesLose(categoriesLose);
+    // addCategoriesLose(categoriesLose);
     
+  }
+}
 
+function handleAddTransactionIncome(transaction) {
+  if (transaction !== "") {
+   
+    // addCategoriesIncome(transaction)
+    addTransactionIncome(transaction)
+  }
+}
 
+function handleAddTransactionOutcome(transaction) {
+  if (transaction !== "") {
+    
+    // addCategoriesOutcome(transaction);
+    addTransactionOutcome(transaction);
+    // renderDivContainerOutcomeList(transactions)
   }
 }
 

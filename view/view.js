@@ -9,10 +9,7 @@ elButtonIncome.onclick = onClickIncome;
 function renderDivBalance(balance) {
   const elIBalance = document.querySelector("#i-balance");
   elIBalance.textContent = "$" + balance;
-
-
 }
-
 
 function generateTransactionIncome(transaction) {
   const elLiIncome = document.createElement("li");
@@ -21,46 +18,39 @@ function generateTransactionIncome(transaction) {
   return elLiIncome;
 }
 function generateTransactionOutcome(transaction) {
-  
-  const elLiOutcome = document.createElement('li')
-  elLiOutcome.setAttribute('class','outcome')
-  elLiOutcome.textContent = '$' + transaction;
+  const elLiOutcome = document.createElement("li");
+  elLiOutcome.setAttribute("class", "outcome");
+  elLiOutcome.textContent = "$" + transaction;
   return elLiOutcome;
 }
 
 function renderTransactions(transactions) {
   const elDivTransactionHistory = document.querySelector(
-    ".transaction-history > ul");
-  elDivTransactionHistory.innerHTML = ''
-  transactions.forEach(transaction => {
- 
+    ".transaction-history > ul"
+  );
+  elDivTransactionHistory.innerHTML = "";
+  transactions.forEach((transaction) => {
     const elLiIncomeProfit = generateTransactionIncome(transaction);
-    const elLiOutcomeLoss = generateTransactionOutcome(transaction)
-    
+    const elLiOutcomeLoss = generateTransactionOutcome(transaction);
+
     if (transaction > 0) {
       elDivTransactionHistory.appendChild(elLiIncomeProfit);
-      
     } else {
-
       elDivTransactionHistory.appendChild(elLiOutcomeLoss);
     }
-      
-    
- 
   });
 }
-function generateSpanIncome(categoryLose) {
+function generateSpanIncome(transaction) {
   const selectIncome = document.querySelector("#income");
-  const elSpanIncome = document.createElement('span')
-  elSpanIncome.setAttribute('class', 'badge')
-  const elI = document.createElement('i')
-   const  textProfit =  selectIncome.value 
-  elI.textContent = textProfit + transaction + '$'
+  const elSpanIncome = document.createElement("span");
+  elSpanIncome.setAttribute("class", "badge");
+  const elI = document.createElement("i");
+  const textProfit = selectIncome.value;
+  elI.textContent = textProfit + transaction + "$";
 
-  elSpanIncome.appendChild(elI)
+  elSpanIncome.appendChild(elI);
 
-return elSpanIncome
-  
+  return elSpanIncome;
 }
 function generateSpanOutcome(transaction) {
   const selectOutcome = document.querySelector("#expense");
@@ -74,56 +64,55 @@ function generateSpanOutcome(transaction) {
 
   return elSpanOutcome;
 }
-function renderDivContainerIncomeList(transactions) {
-  const elDivContainerList = document.querySelector('.container-income-list')
-  elDivContainerList.innerHTML = ''
-  transactions.forEach(transaction => {
-    const elSpanIncome = generateSpanIncome(transaction)
-    elDivContainerList.appendChild(elSpanIncome)
-
-  })
+function renderDivContainerIncomeList(transaction) {
+  const elDivContainerList = document.querySelector(".container-income-list");
+  elDivContainerList.innerHTML = "";
+  transactions.forEach((transaction) => {
+    const elSpanIncome = generateSpanIncome(transaction);
+    elDivContainerList.appendChild(elSpanIncome);
+  });
 }
 function renderDivContainerOutcomeList(transactions) {
-  const elDivContainerOutcomeList = document.querySelector('.container-outcome-list')
-  elDivContainerOutcomeList.innerHTML = ''
-  transactions.forEach(transaction => {
-    const elSpanOutcome = generateSpanOutcome(transaction)
-    elDivContainerOutcomeList.appendChild(elSpanOutcome)
-
-  })
-
+  const elDivContainerOutcomeList = document.querySelector(
+    ".container-outcome-list"
+  );
+  elDivContainerOutcomeList.innerHTML = "";
+  transactions.forEach((transaction) => {
+    const elSpanOutcome = generateSpanOutcome(transaction);
+    elDivContainerOutcomeList.appendChild(elSpanOutcome);
+  });
 }
 // function onChangeInput() {
 //   const selectIncome = document.querySelector("#income");
 //   const elIBadge = document.querySelector('.badge > i')
 //   const category = selectIncome.value
 //  elIBadge.textContent = category
-  
-    
+
 //   }
 
 function onClickIncome() {
   const incomeAdd = document.querySelector("#incomeamount");
   const number = incomeAdd.value;
   if (number > 0) {
- 
+    console.log(number);
     handleAddIncome(number);
+    handleAddTransactionIncome(number);
 
-    console.log('кнопка инкома нажата');
+    console.log("кнопка инкома нажата");
   }
-
 }
 
 function onClickOutcome() {
   const outcomeAdd = document.querySelector("#expenseamount");
-  
-  const number = outcomeAdd.value
-  if ( number < 0) {
- 
+
+  const number = outcomeAdd.value;
+  if (number < 0) {
+    console.log(number);
+    
     handleAddOutcome(number);
-   
+    
+    handleAddTransactionOutcome(number);
     // renderTransactions(transactions);
-    console.log('кнопка оуткома нажата')
-    console.log(number)
+    console.log("кнопка оуткома нажата");
   }
 }
