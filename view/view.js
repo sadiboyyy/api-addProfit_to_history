@@ -96,7 +96,7 @@ function onClickIncome() {
   if (number > 0) {
     console.log(number);
     handleAddIncome(number);
-    handleAddTransactionIncome(number);
+    handleAddTransactionIncome(transactions);
 
     console.log("кнопка инкома нажата");
   }
@@ -111,7 +111,7 @@ function onClickOutcome() {
     
     handleAddOutcome(number);
     
-    handleAddTransactionOutcome(number);
+    handleAddTransactionOutcome(transactions);
     // renderTransactions(transactions);
     console.log("кнопка оуткома нажата");
   }

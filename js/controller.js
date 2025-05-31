@@ -1,5 +1,3 @@
-
-
 function handleAddIncome(transaction) {
   if (transaction !== "") {
     addTransactionIncome(transaction);
@@ -8,36 +6,31 @@ function handleAddIncome(transaction) {
     renderDivContainerIncomeList(transactions);
     renderTransactions(transactions);
     // addCategoriesProfit(categoriesProfit);
-
   }
 }
 
 function handleAddOutcome(transaction) {
   if (transaction !== "") {
     addTransactionOutcome(transaction);
-    let sum = sumTransactions()
+    let sum = sumTransactions();
     renderDivBalance(sum);
     renderDivContainerOutcomeList(transactions);
     renderTransactions(transactions);
     // addCategoriesLose(categoriesLose);
-    
   }
 }
 
 function handleAddTransactionIncome(transaction) {
   if (transaction !== "") {
-   
     // addCategoriesIncome(transaction)
-    addTransactionIncome(transaction)
+    addTransactionIncome(transactions);
   }
 }
 
 function handleAddTransactionOutcome(transaction) {
   if (transaction !== "") {
-    
     // addCategoriesOutcome(transaction);
-    addTransactionOutcome(transaction);
+    addTransactionOutcome(transactions);
     // renderDivContainerOutcomeList(transactions)
   }
 }
-
