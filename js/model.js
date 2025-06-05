@@ -12,9 +12,14 @@ const transactions = [
   //   type: 'expense'
   // },
 ]
-const historyСategories = [
+const categoriesIncome = [
 
 ]
+
+const categoriesExpense = [
+
+]
+
 
 function sumTransactions() {
   let sum = 0
@@ -48,9 +53,16 @@ function addTransactionExpense(transaction, categoryExpense) {
 function addCategoryExpense(objectExpense) {
   historyСategories.push(objectExpense)
 }
-function addCategoryExpense(transactionIncome) {
-  historyСategories.push(transactionIncome);
+function addCategoryIncome(transactionIncome) {
+  const categoryInvesting = {
+    category: 'инвестиция'
+  }
+  categoriesIncome.push(categoryInvesting);
 }
+function addInvestingCategories(transactionIncome) {
+  categoriesIncome.push(transactionIncome)
+}
+
 
 
 // function addCategoriesIncome(categoryProfit) {

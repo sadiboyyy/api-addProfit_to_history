@@ -107,9 +107,11 @@ function renderContainerIncomeList(transactions) {
   const elDivIncomeList = document.querySelector('.container-income-list')
   elDivIncomeList.innerHTML = "";
   transactions.forEach((transactionIncome) => {
-    if (transactionIncome.type === "income") elSpanIncome = generateIncomeList(transactionIncome);
-    elDivIncomeList.appendChild(elSpanIncome)
-
+    if (transactionIncome.type === "income") {
+      elSpanIncome = generateIncomeList(transactionIncome);
+      console.log(elSpanIncome);
+      elDivIncomeList.appendChild(elSpanIncome);
+    } 
    
   });
 }
@@ -118,8 +120,11 @@ function renderContainerExpenseList(transactions) {
   const elDivExpenseList = document.querySelector(".container-expense-list");
   elDivExpenseList.innerHTML = "";
   transactions.forEach((objectExpense) => {
-    if (objectExpense.type === "expense") elSpanExpense = generateExpenseList(objectExpense);
-    elDivExpenseList.appendChild(elSpanExpense);
+    if (objectExpense.type === "expense") {
+      elSpanExpense = generateExpenseList(objectExpense);
+      console.log(elSpanExpense);
+      elDivExpenseList.appendChild(elSpanExpense); 
+    } 
   });
 }
 
