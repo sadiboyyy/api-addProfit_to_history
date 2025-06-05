@@ -12,14 +12,9 @@ const transactions = [
   //   type: 'expense'
   // },
 ]
-const categoriesIncome = [
+const categoriesIncome = []
 
-]
-
-const categoriesExpense = [
-
-]
-
+const categoriesExpense = []
 
 function sumTransactions() {
   let sum = 0
@@ -50,20 +45,35 @@ function addTransactionExpense(transaction, categoryExpense) {
   transactions.push(objectExpense)
   console.log('добавлен расход')
 }
-function addCategoryExpense(objectExpense) {
-  historyСategories.push(objectExpense)
+
+function addCategoryIncome(category) {
+  categoriesIncome.push(category)
 }
-function addCategoryIncome(transactionIncome) {
-  const categoryInvesting = {
-    category: 'инвестиция'
-  }
-  categoriesIncome.push(categoryInvesting);
+function addCategoryExpense(category) {
+  categoriesExpense.push(category)
 }
-function addInvestingCategories(transactionIncome) {
-  categoriesIncome.push(transactionIncome)
+function removeCategoryIncome(category) {
+  const idx = categoriesIncome.indexOf(category)
+  idx
+  if (idx > -1) categoriesIncome.splice(idx, 1)
 }
 
+categoriesIncome
 
+addCategoryIncome('инвестиции')
+categoriesIncome
+
+addCategoryIncome('акции')
+categoriesIncome
+
+addCategoryIncome('зарплата')
+categoriesIncome
+
+addCategoryIncome('зарплата')
+categoriesIncome
+
+removeCategoryIncome('зарплата')
+categoriesIncome
 
 // function addCategoriesIncome(categoryProfit) {
 //   categoriesProfit.push(categoryProfit);
