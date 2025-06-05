@@ -101,9 +101,19 @@ input[type='number'] {
   background: hsl(0, 33%, 85%);
 }
 
-.badge {
+.badge-income  {
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 4px solid #52e906;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 #2345;
+  cursor: default;
+  margin: 5px;
+  font-size: 14px;
+}
+.badge-expense{
+  display: inline-block;
+  border: 4px solid #e93b06;
   padding: 5px;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 #2345;
@@ -112,7 +122,10 @@ input[type='number'] {
   font-size: 14px;
 }
 
-.badge > i {
+.badge-income > i {
+  padding: 5px;
+}
+.badge-expense > i {
   padding: 5px;
 }
 
@@ -144,15 +157,15 @@ input[type='button'] {
   position: relative;
 }
 
-.transaction-history {
+
   .income {
     color: lightgreen;
   }
 
-  .outcome {
+  .expense {
     color: lightcoral;
   }
-}
+
 
 .footer {
   margin-top: 100px;

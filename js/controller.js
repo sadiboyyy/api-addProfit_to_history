@@ -1,36 +1,41 @@
-function handleAddIncome(transaction) {
-  if (transaction !== "") {
-    addTransactionIncome(transaction);
-    let sum = sumTransactions();
-    renderDivBalance(sum);
-    renderDivContainerIncomeList(transactions);
+
+
+function handleAddIncome(incomeValue) {
+  if (incomeValue !== '') {
+    addTransactionIncome(incomeValue, 'зарплата' , 'подарок') // категорию передать с view
+    renderDivBalance(sumTransactions())
+    renderTransactions(transactions)
+    renderContainerIncomeList(transactions)
+
+  }
+}
+
+function handleAddExpense(expenseValue) {
+
+  if (expenseValue !== "") {
+    addTransactionExpense(expenseValue, 'Бытовая техника','Продукты питания');
+    renderDivBalance(sumTransactions());
     renderTransactions(transactions);
-    // addCategoriesProfit(categoriesProfit);
+    renderContainerExpenseList(transactions)
+   
   }
 }
 
-function handleAddOutcome(transaction) {
-  if (transaction !== "") {
-    addTransactionOutcome(transaction);
-    let sum = sumTransactions();
-    renderDivBalance(sum);
-    renderDivContainerOutcomeList(transactions);
-    renderTransactions(transactions);
-    // addCategoriesLose(categoriesLose);
-  }
-}
+// function handleAddTransactionIncome(transaction) {
+//   if (transaction !== "") {
+//     addTransactionOutcome(transaction)
+//     let sum = sumTransactions()
+//     renderDivBalance(sum)
+//     renderDivContainerOutcomeList(transactions)
+//     renderTransactions(transactions)
 
-function handleAddTransactionIncome(transaction) {
-  if (transaction !== "") {
-    // addCategoriesIncome(transaction)
-    addTransactionIncome(transactions);
-  }
-}
+//   }
+// }
 
-function handleAddTransactionOutcome(transaction) {
-  if (transaction !== "") {
-    // addCategoriesOutcome(transaction);
-    addTransactionOutcome(transactions);
-    // renderDivContainerOutcomeList(transactions)
-  }
-}
+// function handleAddTransactionOutcome(transaction) {
+  
+//   if (transaction !== '') {
+//     addTransactionOutcome(transaction);
+
+//   }
+// }
