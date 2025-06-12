@@ -4,7 +4,7 @@ function handleAddIncome(incomeValue) {
     addTransaction(incomeValue, 'зарплата', 'подарок') // категорию передать с view
     renderDivBalance(sumTransactions())
     renderTransactions(transactions)
-    renderListCategoriesIncome(transactions)
+    renderContainerIncomeList(transactions)
   }
 }
 
@@ -32,11 +32,11 @@ function handleAddClothes(clothesCategory) {
 
 function handleRemoveCategoryIncome(category) {
   removeCategoryIncome(category, 'зарплата', 'подарок')
-  renderListСategoriesIncome(categoriesIncome)
+  renderContainerIncomeListСategories(categoriesIncome)
 }
 function handleRemoveCategoryExpense(category) {
   removeCategoryExpense(category, 'Бытовая техника', 'продукты питания')
-  renderListCategoriesIncome(categoriesExpense)
+  renderContainerIncomeList(categoriesExpense)
 }
 
 // function handleAddTransactionIncome(transaction) {
