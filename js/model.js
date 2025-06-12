@@ -57,23 +57,27 @@ function removeCategoryIncome(category) {
   idx
   if (idx > -1) categoriesIncome.splice(idx, 1)
 }
+function removeCategoryExpense(category) {
+  const idx = categoriesExpense.indexOf(category)
+  idx
+  if (idx > -1) categoriesExpense.splice(idx, 1)
+}
 
-categoriesIncome
+function addCategoryInvesting(investingCategory) {
+  categoriesIncome.push(investingCategory)
+}
 
-addCategoryIncome('инвестиции')
-categoriesIncome
+function addCategoryClothes(clothesCategory) {
+categoriesExpense.push(clothesCategory)
+}
 
-addCategoryIncome('акции')
+addCategoryInvesting('инвестиции')
 categoriesIncome
+addCategoryClothes('одежда')
+categoriesExpense
 
-addCategoryIncome('зарплата')
-categoriesIncome
 
-addCategoryIncome('зарплата')
-categoriesIncome
 
-removeCategoryIncome('зарплата')
-categoriesIncome
 
 // function addCategoriesIncome(categoryProfit) {
 //   categoriesProfit.push(categoryProfit);

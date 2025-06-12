@@ -61,45 +61,92 @@ function generateTransactionExpense(transaction) {
 }
 
 function generateIncomeList(transactionIncome) {
-  const elOptionExpense = document.querySelector("#income");
-  const textOption = elOptionExpense.value;
+  const elOptionIncome = document.querySelector("#income");
+  elOptionIncome.value = transactionIncome.category
+  const textOptionIncome = transactionIncome.category
   
 const elSpan = document.createElement('span')
 elSpan.setAttribute('class', 'badge-income')
-const elI = document.createElement('i')
-elI.textContent = textOption + transactionIncome.value + '$'
-const elInputBtn = document.createElement('input')
-elInputBtn.setAttribute('type', 'button')
-  if (elOptionExpense.value !== 'Выберите категорию') {
-   
-      // elInputBtn.setAttribute('value," "')
-      elSpan.appendChild(elI)
-      elSpan.appendChild(elInputBtn) 
-      return elSpan
+  const elI = document.createElement('i')
   
-}
+elI.textContent = textOptionIncome + transactionIncome.value + '$'
+const elInputBtn = document.createElement('input')
+  elInputBtn.setAttribute('type', 'button')
+  elInputBtn.setAttribute('id', 'btn-delete-income')
+  elInputBtn.setAttribute('value', 'x')
+  elInputBtn.onclick = onClickDeleteCategoryIncome
+  if (textOptionIncome !== 'Выберите категорию') {
     
+    // elInputBtn.setAttribute('value," "')
+    elSpan.appendChild(elI)
+    elSpan.appendChild(elInputBtn) 
+    console.log(elInputBtn)
+    return elSpan
+    
+  }
+  
   
 }
 
-function generateExpenseList(objectExpense,transaction) {
+function generateExpenseList(objectExpense) {
   const elOptionExpense = document.querySelector("#expense");
   elOptionExpense.value = objectExpense.category
   const textOptionExpense = objectExpense.category
 
   const elSpan = document.createElement("span");
-  elSpan.setAttribute("class", "badge-expense;");
+  elSpan.setAttribute("class", "badge-expense");
 
   const elI = document.createElement("i");
   elI.textContent = textOptionExpense  + objectExpense.value +"$";
     const elInputBtn = document.createElement("input");
-    elInputBtn.setAttribute("type", "button");
-    // elInputBtn.setAttribute('value,');
+  elInputBtn.setAttribute("type", "button");
+  elInputBtn.setAttribute('id','btn-delete-expense')
+  elInputBtn.value = 'x'
+
+  elInputBtn.onclick = onClickDeleteCategoryExpense
+  if (textOptionExpense !== 'Выберите категорию') {
+    
     elSpan.appendChild(elI);
-    elSpan.appendChild(elInputBtn);
+  elSpan.appendChild(elInputBtn);
     return elSpan;
+  }
     
   
+}
+
+function generateOptionInvesting(investingCategory) {
+  const elOptionInvesting = document.createElement('option')
+  elOptionInvesting.setAttribute('id','category-investing')
+  elOptionInvesting.value = investingCategory
+  return elOptionInvesting
+
+}
+function generateOptionClothes(clothesCategory) {
+  const elOptionClothes = document.createElement('option')
+  elOptionClothes.setAttribute('id','category-clothes')
+  elOptionClothes.value = clothesCategory
+  return elOptionClothes
+}
+
+function renderSelectInvesting(categoriesIncome) {
+  let elOptionIncome
+  const elSelectIncome = document.querySelector('#income')
+  categoriesIncome.forEach((investingCategory) => {
+    if (investingCategory = 'инвестиции') {
+      elOptionIncome = generateOptionInvesting(investingCategory)
+      elSelectIncome.appendChild(elOptionIncome)
+    }
+  })
+}
+function renderSelectClothes(categoriesExpense) {
+  let elOptionExpense
+  const elSelectExpense = document.querySelector('#expense')
+  categoriesExpense.forEach((clothesCategory) => {
+    if ((clothesCategory = 'одежда')) {
+      elOptionExpense = generateOptionInvesting(investingCategory)
+      elSelectExpense.appendChild(elOptionExpense)
+    }
+  })
 }
 
 function renderContainerIncomeList(transactions) {
@@ -109,7 +156,7 @@ function renderContainerIncomeList(transactions) {
   transactions.forEach((transactionIncome) => {
     if (transactionIncome.type === "income") {
       elSpanIncome = generateIncomeList(transactionIncome);
-      console.log(elSpanIncome);
+    
       elDivIncomeList.appendChild(elSpanIncome);
     } 
    
@@ -128,6 +175,42 @@ function renderContainerExpenseList(transactions) {
   });
 }
 
+function renderContainerIncomeListСategories(categoriesIncome) {
+  let elSpanIncome
+  const elDivIncomeList = document.querySelector('.container-income-list')
+  elDivIncomeList.innerHTML = ''
+  categoriesIncome.forEach(transactionIncome => {
+    if (transactionIncome.type === 'income') {
+      elSpanIncome = generateIncomeList(transactionIncome)
+
+      elDivIncomeList.appendChild(elSpanIncome)
+    }
+  })
+}
+
+
+function onClickDeleteCategoryIncome(e) {
+  const elButton = e.target
+  // const elSpan = elButton.closest('span')
+  // const elI = elSpan.querySelector('i')
+  // const text = elI.textContent
+  const elDivIncome = elButton.closest('.container-income-list')
+
+
+  
+  handleRemoveCategoryIncome(elDivIncome)
+  console.log(elDivIncome)
+
+  
+}
+function onClickDeleteCategoryExpense(e) {
+  const elButton = e.target
+  const elDivExpense = elButton.closest('.container-expense-list')
+
+  handleRemoveCategoryExpense(elDivExpense)
+  console.log(elDivExpense)
+}
+///Новый рендер только уже с другим масивом
 
 
 // function renderDivContainerIncomeList(categories) {
