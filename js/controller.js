@@ -1,52 +1,48 @@
-
-
-function handleAddIncome(incomeValue) {
+function handleAddIncome(incomeValue,category) {
   if (incomeValue !== '') {
     addCategoryIncome(incomeValue)
-    addTransactionIncome(incomeValue, 'зарплата' , 'подарок') // категорию передать с view
+    addTransaction('income', incomeValue, category) // категорию передать с view
     renderDivBalance(sumTransactions())
     renderTransactions(transactions)
     renderContainerIncomeList(transactions)
+  }
+  console.log('функция  handleadleincome вызвана')
+}
 
-  }
-}
-
-function handleAddExpense(expenseValue) {
-
-  if (expenseValue !== "") {
-    addCategoryExpense(expenseValue)
-    addTransactionExpense(expenseValue, 'Бытовая техника','Продукты питания');
-    renderDivBalance(sumTransactions());
-    renderTransactions(transactions);
-    renderContainerExpenseList(transactions)
-   
-  }
-}
-function handleAddInvesting(investingCategory) {
-  if (investingCategory !== '') {
-    addTransactionIncome(incomeValue, 'зарплата', 'подарок')
-    addCategoryExpense(investingCategory , 'инвестиции')
-    
-  }
-}
-function handleAddClothes(clothesCategory) {
-  if (clothesCategory !== '') {
-    
-    addTransactionExpense(expenseValue, 'Бытовая техника', 'Продукты питания')
-    addCategoryExpense(clothesCategory, 'одежда')
- }
-}
-function handleRemoveCategoryIncome(incomeValue) {
-  if (incomeValue !== '') {
-    removeCategoryIncome(incomeValue, 'зарплата', 'подарок')
-    renderContainerIncomeListСategories(categoriesIncome)
-  }
-}
-function handleRemoveCategoryExpense(expenseValue) {
+function handleAddExpense(expenseValue,category) {
   if (expenseValue !== '') {
-    removeCategoryExpense(expenseValue, 'Бытовая техника', 'продукты питания')
-    renderContainerIncomeList(categoriesExpense)
+    addCategoryExpense(category)
+    addTransaction('expense', expenseValue,category)
+    renderDivBalance(sumTransactions())
+    renderTransactions(transactions)
+    renderContainerExpenseList(transactions)
+    
   }
+  console.log('функция  handleaddexpense вызвана')
+}
+function handleAddOptionIncome(incomeValue) {
+  if (incomeValue !== '') {
+    addCategoryIncome(incomeValue)
+    renderSelectIncome(categoriesIncome)
+  }
+}
+function handleAddOptionExpense(expenseValue) {
+  if (expenseValue !== '') {
+    addCategoryExpense(expenseValue)
+    renderSelectExpense(categoriesExpense)
+  }
+}
+
+
+
+
+function handleRemoveCategoryIncome(categoryIncome) {
+  removeCategoryIncome(categoryIncome)
+  renderContainerIncomeListСategories(categoriesIncome)
+}
+function handleRemoveCategoryExpense(categoryExpense) {
+  removeCategoryExpense(categoryExpense)
+  renderContainerIncomeList(categoriesExpense)
 }
 
 // function handleAddTransactionIncome(transaction) {
@@ -61,7 +57,7 @@ function handleRemoveCategoryExpense(expenseValue) {
 // }
 
 // function handleAddTransactionOutcome(transaction) {
-  
+
 //   if (transaction !== '') {
 //     addTransactionOutcome(transaction);
 

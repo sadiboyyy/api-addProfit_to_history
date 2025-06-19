@@ -1,20 +1,12 @@
-// const categoriesIncome = [];
-// const categoriesExpense = [];
+const categoriesIncome = []
+const categoriesExpense = []
 const transactions = [
   // {
   //   value: 42,
   //   category: 'подарок',
   //   type: 'income'
   // },
-  // {
-  //   value: 33,
-  //   category: 'продукты питания',
-  //   type: 'expense'
-  // },
 ]
-const categoriesIncome = []
-
-const categoriesExpense = []
 
 function sumTransactions() {
   let sum = 0
@@ -26,24 +18,24 @@ function sumTransactions() {
   return sum
 }
 
-function addTransactionIncome(incomeValue, category) {
-  const transactionIncome = {
-    value: +incomeValue,
+function addTransaction(type, value, category) {
+  if (type === 'income') {
+    if (!categoriesIncome.includes(category)) {
+      return console.log('нет такой категории доходов!!')
+    }
+  }
+  if (type === 'expense') {
+    if (!categoriesExpense.includes(category)) {
+      return console.log('нет такой категории расходов!!')
+    }
+  }
+  const transaction = {
+    value: +value,
     category: category,
-    type: 'income',
+    type: type,
   }
-  transactions.push(transactionIncome)
-  console.log('добавлен доход')
-}
-
-function addTransactionExpense(transaction, categoryExpense) {
-  const objectExpense = {
-    value: +transaction,
-    category: categoryExpense,
-    type: 'expense',
-  }
-  transactions.push(objectExpense)
-  console.log('добавлен расход')
+  transactions.push(transaction)
+  console.log('добавлена транзакция')
 }
 
 function addCategoryIncome(category) {
@@ -54,43 +46,25 @@ function addCategoryExpense(category) {
 }
 function removeCategoryIncome(category) {
   const idx = categoriesIncome.indexOf(category)
-  idx
   if (idx > -1) categoriesIncome.splice(idx, 1)
 }
 function removeCategoryExpense(category) {
   const idx = categoriesExpense.indexOf(category)
-  idx
   if (idx > -1) categoriesExpense.splice(idx, 1)
 }
 
-function addCategoryInvesting(investingCategory) {
-  categoriesIncome.push(investingCategory)
-}
+// addCategoryIncome('инвестиции')
+// addCategoryIncome('подарок')
+// categoriesIncome
+// addCategoryExpense('одежда')
+// addCategoryExpense('продукты питания')
+// categoriesExpense
+// removeCategoryExpense('продукты питания')
+// categoriesExpense
 
-function addCategoryClothes(clothesCategory) {
-categoriesExpense.push(clothesCategory)
-}
+// addTransaction('income', 50000, 'подарок')
+// addTransaction('expense', -4000, 'продукты питания')
 
-addCategoryInvesting('инвестиции')
-categoriesIncome
-addCategoryClothes('одежда')
-categoriesExpense
+transactions
 
-
-
-
-// function addCategoriesIncome(categoryProfit) {
-//   categoriesProfit.push(categoryProfit);
-// }
-
-// function addCategoriesExpense(categoryLose) {
-//   categoriesLose.push(categoryLose);
-// }
-
-// addTransactionIncome(5, 'подарок')
-
-// addTransactionExpense(-4, 'продукты питания')
-
-// transactions
-
-// console.log(sumTransactions())
+console.log(sumTransactions())
