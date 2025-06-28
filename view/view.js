@@ -1,39 +1,43 @@
 // const elSelectIncome = document.querySelector('#income')
 // elSelectIncome.onchange = onChangeInput;
 
-const elButtonOutcome = document.querySelector('#expenseadd')
-elButtonOutcome.onclick = onClickExpense
+const elButtonExpenseAdd = document.querySelector('#expenseadd')
+elButtonExpenseAdd.onclick = onClickExpenseAddTransaction
 
-const elButtonIncome = document.querySelector('#incomeadd')
-elButtonIncome.onclick = onClickIncome
-console.log(elButtonIncome) 
-const btnIncome = document.querySelector('#btn-add-income')
-elButtonIncome.onclick = onClickBtnIncome
-const elInputText = document.querySelector('#category-income')
-elInputText.oninput = onClickBtnIncome
-const btnExpense = document.querySelector('#btn-add-expense')
-btnExpense.onclick = onClickBtnExpense
-const elInputTextExpense = document.querySelector('#category-expense')
-elInputTextExpense.oninput= onClickBtnExpense
+const elButtonIncomeAdd = document.querySelector('#incomeadd')
+elButtonIncomeAdd.onclick = onClickIncomeAddTransaction
+
+console.log(elButtonIncomeAdd) 
+const elBtnAddCategoryIncome = document.querySelector('#btn-add-category-income')
+elBtnAddCategoryIncome.onclick = onClickAddCategoryIncome
+
+const elInputTextIncome = document.querySelector('#input-category-income')
+elInputTextIncome.oninput = onClickAddCategoryIncome
+
+const elAddBtnCategoryExpense = document.querySelector('#btn-add-category-expense')
+elAddBtnCategoryExpense.onclick = onClickAddCategoryExpense
+
+const elInputTextExpense = document.querySelector('#input-category-expense')
+elInputTextExpense.oninput= onClickAddCategoryExpense
 
 function renderDivBalance(balance) {
   const elIBalance = document.querySelector('#i-balance')
   elIBalance.textContent = '$' + balance
 }
 
-function renderTransactions(transactions) {
+function renderTransactionsHistory(transactions) {
   let elLi
-  const elDivTransactions = document.querySelector('.transaction-history > ul')
-  elDivTransactions.innerHTML = ''
+  const elDivTransactionsHistory = document.querySelector('.transaction-history > ul')
+  elDivTransactionsHistory.innerHTML = ''
   transactions.forEach(t => {
     if (t.type === 'income') elLi = generateTransactionIncome(t)
     if (t.type === 'expense') elLi = generateTransactionExpense(t)
     console.log(elLi)
-    elDivTransactions.appendChild(elLi)
+    elDivTransactionsHistory.appendChild(elLi)
   })
 }
 
-function onClickIncome() {
+function onClickIncomeAddTransaction() {
   const elInputIncomeAdd = document.querySelector('#incomeamount')
   const number = elInputIncomeAdd.value
   if (number > 0) handleAddIncome(number)
@@ -41,7 +45,7 @@ function onClickIncome() {
   elInputIncomeAdd.focus()
   console.log('онклик вызван')
 }
-function onClickExpense() {
+function onClickExpenseAddTransaction() {
   const elInputExpenseAdd = document.querySelector('#expenseamount')
   const number = elInputExpenseAdd.value
   console.log(number)
@@ -64,7 +68,7 @@ function generateTransactionExpense(transaction) {
   return elLiExpense
 }
 
-function generateIncomeList(transaction) {
+function generateSpanIncomeList(transaction) {
   const elOptionIncome = document.querySelector('#income')
   elOptionIncome.value = transaction.category
   const textOptionIncome = transaction.category
@@ -74,21 +78,21 @@ function generateIncomeList(transaction) {
   const elI = document.createElement('i')
 
   elI.textContent = textOptionIncome + transaction.value + '$'
-  const elInputBtn = document.createElement('input')
-  elInputBtn.setAttribute('type', 'button')
-  elInputBtn.setAttribute('id', 'btn-delete-income')
-  elInputBtn.setAttribute('value', 'x')
-  elInputBtn.onclick = onClickDeleteCategoryIncome
+  const elInputBtnDltIncome = document.createElement('input')
+  elInputBtnDltIncome.setAttribute('type', 'button')
+  elInputBtnDltIncome.setAttribute('id', 'btn-delete-income')
+  elInputBtnDltIncome.setAttribute('value', 'x')
+  elInputBtnDltIncome.onclick = onClickDeleteCategoryIncome
   if (textOptionIncome !== 'Выберите категорию') {
     // elInputBtn.setAttribute('value," "')
     elSpan.appendChild(elI)
-    elSpan.appendChild(elInputBtn)
-    console.log(elInputBtn)
+    elSpan.appendChild(elInputBtnDltIncome)
+    console.log(elInputBtnDltIncome)
     return elSpan
   }
 }
 
-function generateExpenseList(transaction) {
+function generateSpanExpenseList(transaction) {
   const elOptionExpense = document.querySelector('#expense')
   elOptionExpense.value = transaction.category
   const textOptionExpense = transaction.category
@@ -98,12 +102,12 @@ function generateExpenseList(transaction) {
 
   const elI = document.createElement('i')
   elI.textContent = textOptionExpense + transaction.value + '$'
-  const elInputBtn = document.createElement('input')
-  elInputBtn.setAttribute('type', 'button')
-  elInputBtn.setAttribute('id', 'btn-delete-expense')
-  elInputBtn.value = 'x'
+  const elInputBtnDltExpense = document.createElement('input')
+  elInputBtnDltExpense.setAttribute('type', 'button')
+  elInputBtnDltExpense.setAttribute('id', 'btn-delete-expense')
+  elInputBtnDltExpense.value = 'x'
 
-  elInputBtn.onclick = onClickDeleteCategoryExpense
+  elInputBtnDltExpense.onclick = onClickDeleteCategoryExpense
   if (textOptionExpense !== 'Выберите категорию') {
     elSpan.appendChild(elI)
     elSpan.appendChild(elInputBtn)
@@ -111,7 +115,7 @@ function generateExpenseList(transaction) {
   }
 }
 
-function generateOption(categoryIncome) {
+function generateOptionIncome(categoryIncome) {
   const elOption = document.createElement('option')
   elOption.setAttribute('id', 'category-add')
   elOption.value = categoryIncome
@@ -150,43 +154,31 @@ function renderSelectIncome(categoriesIncome) {
     })
 }
 
-function renderContainerIncomeList(transactions) {
+function renderIncomeCategoriesList(transactions) {
   let elSpanIncome
   const elDivIncomeList = document.querySelector('.container-income-list')
   elDivIncomeList.innerHTML = ''
   transactions.forEach(transaction => {
     if (transaction.type === 'income') {
-      elSpanIncome = generateIncomeList(transaction)
+      elSpanIncome = generateSpanIncomeList(transaction)
 
       elDivIncomeList.appendChild(elSpanIncome)
     }
   })
 }
-function renderContainerExpenseList(transactions) {
+function renderExpenseCategoriesList(transactions) {
   let elSpanExpense
   const elDivExpenseList = document.querySelector('.container-expense-list')
   elDivExpenseList.innerHTML = ''
   transactions.forEach(transaction => {
     if (transaction.type === 'expense') {
-      elSpanExpense = generateExpenseList(transaction)
+      elSpanExpense = generateSpanExpenseList(transaction)
       console.log(elSpanExpense)
       elDivExpenseList.appendChild(elSpanExpense)
     }
   })
 }
 
-function renderContainerIncomeListCategories(categoriesIncome) {
-  let elSpanIncome
-  const elDivIncomeList = document.querySelector('.container-income-list')
-  elDivIncomeList.innerHTML = ''
-  categoriesIncome.forEach(transactionIncome => {
-    if (transactionIncome.type === 'income') {
-      elSpanIncome = generateIncomeList(transactionIncome)
-
-      elDivIncomeList.appendChild(elSpanIncome)
-    }
-  })
-}
 
 function onClickDeleteCategoryIncome(e) {
   const elButton = e.target
@@ -205,20 +197,19 @@ function onClickDeleteCategoryExpense(e) {
   handleRemoveCategoryExpense(elDivExpense)
   console.log(elDivExpense)
 }
-function onClickBtnIncome() {
-  const categoryIncome = document.querySelector('#category-income')
-  const textIncome = categoryIncome.value
-  btnIncome.value = textIncome
-  // console.log('dfs')
+function onClickAddCategoryIncome() {
+  const elInputCategoryIncome = document.querySelector('#input-category-income')
+  const textIncome = elInputCategoryIncome.value
+  console.log('dfs')
   if (textIncome !== '') {
     handleAddOptionIncome(textIncome)
     console.log(textIncome)
  
   }
 }
-function onClickBtnExpense() {
-  const categoryExpense = document.querySelector('#category-expense')
-  const textExpense = categoryExpense.value
+function onClickAddCategoryExpense() {
+  const elInputCategoryExpense = document.querySelector('#input-category-expense')
+  const textExpense = elInputCategoryExpense.value
   btnIncome.value = textExpense
   console.log('dfs')
   if (textExpense !== '') {
