@@ -1,10 +1,10 @@
 function handleAddIncome(incomeValue,category) {
   if (incomeValue !== '') {
-    addCategoryIncome(incomeValue)
+    addCategoryIncome(category)
     addTransaction('income', incomeValue, category) // категорию передать с view
     renderDivBalance(sumTransactions())
-    renderTransactions(transactions)
-    renderContainerIncomeList(transactions)
+    renderTransactionsHistory(transactions)
+    renderIncomeCategoriesList(transactions)
   }
   console.log('функция  handleadleincome вызвана')
 }
@@ -14,8 +14,8 @@ function handleAddExpense(expenseValue,category) {
     addCategoryExpense(category)
     addTransaction('expense', expenseValue,category)
     renderDivBalance(sumTransactions())
-    renderTransactions(transactions)
-    renderContainerExpenseList(transactions)
+    renderTransactionsHistory(transactions)
+    renderExpenseCategoriesList(transactions)
     
   }
   console.log('функция  handleaddexpense вызвана')
