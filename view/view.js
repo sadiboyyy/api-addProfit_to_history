@@ -75,50 +75,51 @@ function generateTransactionExpense(transaction) {
 }
 
 function generateSpanIncomeList(transaction) {
-  const elOptionIncome = document.querySelector('#income')
-  elOptionIncome.value = transaction.category
-  const textOptionIncome = transaction.category
+  const elDivCategoryIncome = document.createElement('div')
+  elDivCategoryIncome.setAttribute('class','category-income')
+ 
 
   const elSpan = document.createElement('span')
   elSpan.setAttribute('class', 'badge')
   const elI = document.createElement('i')
 
-  elI.textContent = textOptionIncome + transaction.value + '$'
+  elI.textContent = transaction.category + '$'
   const elInputBtnDltIncome = document.createElement('input')
   elInputBtnDltIncome.setAttribute('type', 'button')
-  elInputBtnDltIncome.setAttribute('id', 'btn-delete-income')
   elInputBtnDltIncome.setAttribute('value', 'x')
   elInputBtnDltIncome.onclick = onClickDeleteCategoryIncome
-  if (textOptionIncome !== 'Выберите категорию') {
+  
     // elInputBtn.setAttribute('value," "')
+    elDivCategoryIncome.appendChild(elSpan)
     elSpan.appendChild(elI)
     elSpan.appendChild(elInputBtnDltIncome)
-    console.log(elInputBtnDltIncome)
-    return elSpan
-  }
+    return elDivCategoryIncome
+  
 }
 
-function generateSpanExpenseList(transaction) {
-  const elOptionExpense = document.querySelector('#expense')
-  elOptionExpense.value = transaction.category
-  const textOptionExpense = transaction.category
+function generateSpanExpenseList(categoryExpense) {
+  const elDivCategoryExpense = document.createElement('div')
+  elDivCategoryExpense.setAttribute('class','category-expense')
+  
 
   const elSpan = document.createElement('span')
   elSpan.setAttribute('class', 'badge')
 
   const elI = document.createElement('i')
-  elI.textContent = textOptionExpense + transaction.value + '$'
+  elI.textContent =categoryExpense + '$'
+  
   const elInputBtnDltExpense = document.createElement('input')
   elInputBtnDltExpense.setAttribute('type', 'button')
-  elInputBtnDltExpense.setAttribute('id', 'btn-delete-expense')
-  elInputBtnDltExpense.value = 'x'
+  elInputBtnDltExpense.setAttribute('value', 'x')
+ 
 
   elInputBtnDltExpense.onclick = onClickDeleteCategoryExpense
-  if (textOptionExpense !== 'Выберите категорию') {
+  
+    elDivCategoryExpense.appendChild(elSpan)
     elSpan.appendChild(elI)
     elSpan.appendChild(elInputBtnDltExpense)
-    return elSpan
-  }
+    return elDivCategoryExpense
+  
 }
 
 function generateOptionIncome(categoryIncome) {
@@ -136,16 +137,16 @@ function generateOptionExpense(categoryExpense) {
   return elOption
 }
 
-function renderSelectExpense(categoriesExpense) {
+function renderSelectExpense(transactions) {
   let elOptionExpense
   const elSelectExpense = document.querySelector('#expense')
   elSelectExpense.innerHTML = ''
-  categoriesExpense.forEach(categoryExpense => {
-    if (transaction.type = 'expense') {
+  transactions.forEach(categoryExpense => {
+  
       
       elOptionExpense = generateOptionExpense(categoryExpense)
       elSelectExpense.appendChild(elOptionExpense)
-    }
+    
     
       
     
@@ -153,16 +154,16 @@ function renderSelectExpense(categoriesExpense) {
 
 }
 
-function renderSelectIncome(categoriesIncome) {
+function renderSelectIncome(transactions) {
   let elOptionIncome
   const elSelectIncome = document.querySelector('#income')
   elSelectIncome.innerHTML = ''
-  categoriesIncome.forEach(categoryIncome => {
-    if ((transaction.type = 'income')) {
+transactions.forEach(categoryIncome => {
+   
       
       elOptionIncome = generateOptionIncome(categoryIncome)
       elSelectIncome.appendChild(elOptionIncome)
-    }
+    
     
     })
 }
@@ -183,10 +184,10 @@ function renderExpenseCategoriesList(transactions) {
   let elSpanExpense
   const elDivExpenseList = document.querySelector('.container-expense-categories-list')
   elDivExpenseList.innerHTML = ''
-  transactions.forEach(transaction => {
+  transactions.forEach(categoryExpense => {
     
-      elSpanExpense = generateSpanExpenseList(transaction)
-      console.log(elSpanExpense)
+      elSpanExpense = generateSpanExpenseList(categoryExpense)
+      
       elDivExpenseList.appendChild(elSpanExpense)
     
   })
