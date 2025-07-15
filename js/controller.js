@@ -1,4 +1,4 @@
-function handleAddIncome(incomeValue,category) {
+function handleAddIncome(incomeValue, category) {
   if (incomeValue !== '') {
     addCategoryIncome(category)
     addTransaction('income', incomeValue, category) // категорию передать с view
@@ -9,14 +9,13 @@ function handleAddIncome(incomeValue,category) {
   console.log('функция  handleadleincome вызвана')
 }
 
-function handleAddExpense(expenseValue,category) {
+function handleAddExpense(expenseValue, category) {
   if (expenseValue !== '') {
     addCategoryExpense(category)
-    addTransaction('expense', expenseValue,category)
+    addTransaction('expense', expenseValue, category)
     renderDivBalance(sumTransactions())
     renderTransactionsHistory(transactions)
     renderExpenseCategoriesList(transactions)
-    
   }
   console.log('функция  handleaddexpense вызвана')
 }
@@ -33,33 +32,30 @@ function handleAddOptionExpense(expenseValue) {
   }
 }
 
-
-
-
 function handleRemoveCategoryIncome(categoryIncome) {
   removeCategoryIncome(categoryIncome)
-  renderContainerIncomeListСategories(categoriesIncome)
+  renderIncomeCategoriesList(categoriesIncome)
 }
 function handleRemoveCategoryExpense(categoryExpense) {
   removeCategoryExpense(categoryExpense)
-  renderContainerIncomeList(categoriesExpense)
+  renderExpenseCategoriesList(categoriesExpense)
 }
 
-// function handleAddTransactionIncome(transaction) {
-//   if (transaction !== "") {
-//     addTransactionOutcome(transaction)
-//     let sum = sumTransactions()
-//     renderDivBalance(sum)
-//     renderDivContainerOutcomeList(transactions)
-//     renderTransactions(transactions)
+function handleAddTransactionIncome(transaction) {
+  if (transaction !== "") {
+    addTransaction(transaction)
+    let sum = sumTransactions()
+    renderDivBalance(sum)
+    renderDivContainerOutcomeList(transactions)
+    renderTransactions(transactions)
 
-//   }
-// }
+  }
+}
 
-// function handleAddTransactionOutcome(transaction) {
+function handleAddTransactionOutcome(transaction) {
 
-//   if (transaction !== '') {
-//     addTransactionOutcome(transaction);
+  if (transaction !== '') {
+    addTransaction(transaction);
 
-//   }
-// }
+  }
+}
