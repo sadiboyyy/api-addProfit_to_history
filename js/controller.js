@@ -8,6 +8,7 @@ function handleAddIncome(incomeValue, category) {
     renderListTransactions(transactions)
     renderInputAddCategoryIncome(category)
     renderListCategoriesIncome(transactions)
+    renderInputAddTransactionIncome()
   }
   console.log('функция  handleadleincome вызвана')
 }
@@ -40,8 +41,7 @@ function handleAddOptionExpense(expenseValue) {
 function handleRemoveCategoryIncome(categoryIncome) {
   if (categoryIncome !== '') {
     renderListCategoriesIncome(transactions)
-  
-}
+  }
 }
 function handleRemoveCategoryExpense(categoryExpense) {
   if (categoryExpense !== '') {
@@ -50,24 +50,21 @@ function handleRemoveCategoryExpense(categoryExpense) {
 }
 
 function handleAddTransactionIncome(transaction) {
-  if (transaction !== "") {
+  if (transaction !== '') {
     addTransaction(transaction)
     let sum = sumTransactions()
     renderH4SumTransactions(sum)
     renderInputAddTransactionIncome(transactions)
     renderListTransactions(transactions)
-
   }
 }
 
 function handleAddTransactionOutcome(transaction) {
-
   if (transaction !== '') {
-    addTransaction(transaction);
+    addTransaction(transaction)
     let sum = sumTransactions()
     renderH4SumTransactions(sum)
     renderInputAddTransactionExpense(transactions)
     renderListTransactions(transactions)
-
   }
 }

@@ -16,7 +16,7 @@ elBtnAddCategoryIncome.onclick = onClickAddCategoryIncome
 // const elInputTextIncome = document.querySelector('#input-category-income')
 // elInputTextIncome.oninput = onClickAddCategoryIncome
 
-const elAddBtnCategoryExpenseIncome = document.querySelector(
+const elBtnAddCategoryExpense = document.querySelector(
   '#btn-add-category-expense'
 )
 elAddBtnCategoryExpense.onclick = onClickAddCategoryExpense

@@ -1,48 +1,28 @@
 function renderInputAddCategoryIncome() {
- 
-
- 
   const elDivIncomeCategotyIncome = document.querySelector(
     '#input-category-income'
   )
   elDivIncomeCategotyIncome.value = ''
-   
-  
 }
 function renderInputAddCategoryExpense() {
-
   const elDivIncomeCategoryExpense = document.querySelector(
     '#input-category-expense'
   )
   elDivIncomeCategoryExpense.value = ''
- 
-
-  
-  
 }
 function renderInputAddTransactionIncome() {
-  
-  const elIncomeAmount = document.querySelector(
-    '#incomeamount'
-  )
+  const elIncomeAmount = document.querySelector('#incomeamount')
   elIncomeAmount.value = ''
-
- 
+  elInputIncomeAdd.focus()
 }
 function renderInputAddTransactionExpense() {
-
-  const elExpenseAmount = document.querySelector(
-    '#expenseamount'
-  )
+  const elExpenseAmount = document.querySelector('#expenseamount')
   elExpenseAmount.value = ''
-
-
 }
 function renderH4SumTransactions(sumTransactions) {
   // body
   const elIBalance = document.querySelector('#i-balance')
   elIBalance.textContent = '$' + sumTransactions
-
 }
 function renderListTransactions(transactions) {
   // body
@@ -57,25 +37,18 @@ function renderListTransactions(transactions) {
     console.log(elLi)
     elDivTransactionsHistory.appendChild(elLi)
   })
-  
 }
-function renderListCategoriesIncome() {
+function renderListCategoriesIncome(categoriesIncome) {
   // body
-  
-  const elCategoriesIncomeList = document.querySelector(
-    '.badge-income'
-  )
-  elCategoriesIncomeList.value = ''
 
+  const elCategoriesIncomeList = document.querySelector('.badge-income')
+  elCategoriesIncomeList.value = ''
 }
 function renderListCategoriesExpense() {
   // body
- 
-  const elCategoriesExpenseList = document.querySelector(
-    '.badge-expense'
-  )
+
+  const elCategoriesExpenseList = document.querySelector('.badge-expense')
   elCategoriesExpenseList.value = ''
- 
 }
 function renderSelectCategoriesIncome(categoriesIncome) {
   // body
