@@ -1,4 +1,4 @@
-const categoriesIncome = []
+const categoriesIncome = ['биржа']
 const categoriesExpense = []
 const transactions = [
   // {

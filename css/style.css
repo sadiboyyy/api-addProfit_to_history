@@ -175,6 +175,10 @@ color: #e93b06;
   .expense {
     color: lightcoral;
   }
+  .zero{
+    color: #234;
+    text-decoration: dashed rgb(181, 217, 110);
+  }
 
 
 .footer {
