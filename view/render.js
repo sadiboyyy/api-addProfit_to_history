@@ -40,15 +40,27 @@ function renderListTransactions(transactions) {
 }
 function renderListCategoriesIncome(categoriesIncome) {
   // body
-
-  const elCategoriesIncomeList = document.querySelector('.badge-income')
-  elCategoriesIncomeList.value = ''
+ let elCategoryIncome
+  const elDivContainerCategoryIncome = document.querySelector(
+    '.container-income-categories-list'
+  )
+  elDivContainerCategoryIncome.innerHTML = ''
+  categoriesIncome.forEach(categoryIncome => {
+    elCategoryIncome = generateBadgeCategoryIncome(categoryIncome)
+    elDivContainerCategoryIncome.appendChild(elCategoryIncome)
+  })
 }
-function renderListCategoriesExpense() {
+function renderListCategoriesExpense(categoriesExpense) {
   // body
-
-  const elCategoriesExpenseList = document.querySelector('.badge-expense')
-  elCategoriesExpenseList.value = ''
+  let elCategoryExpense
+  const elDivContainerListExpense = document.querySelector(
+    '.container-expense-categories-list'
+  )
+  elCategoryExpense.innerHTML = ''
+  categoriesExpense.forEach(categoryExpense => {
+    elCategoryExpense = generateBadgeCategoryExpense(categoryExpense)
+    elDivContainerListExpense.appendChild(elCategoryExpense)
+  })
 }
 function renderSelectCategoriesIncome(categoriesIncome) {
   // body
