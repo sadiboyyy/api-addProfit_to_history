@@ -13,11 +13,12 @@ function renderInputAddCategoryExpense() {
 function renderInputAddTransactionIncome() {
   const elIncomeAmount = document.querySelector('#incomeamount')
   elIncomeAmount.value = ''
-  elInputIncomeAdd.focus()
+  elIncomeAmount.focus()
 }
 function renderInputAddTransactionExpense() {
   const elExpenseAmount = document.querySelector('#expenseamount')
   elExpenseAmount.value = ''
+   elExpenseAmount.focus()
 }
 function renderH4SumTransactions(sumTransactions) {
   // body
@@ -27,15 +28,17 @@ function renderH4SumTransactions(sumTransactions) {
 function renderListTransactions(transactions) {
   // body
   let elLi
+ 
   const elDivTransactionsHistory = document.querySelector(
     '.transaction-history > ul'
   )
   elDivTransactionsHistory.innerHTML = ''
   transactions.forEach(t => {
-    if (t.type === 'income') elLi = generateItemTransaction(t)
-    if (t.type === 'expense') elLi = generateItemTransaction(t)
-    console.log(elLi)
+    if (t.type === 'income') elLi = generateItemTransactionIncome(t)
+    if (t.type === 'expense') elLi = generateItemTransactionExpense(t)
+   
     elDivTransactionsHistory.appendChild(elLi)
+ 
   })
 }
 function renderListCategoriesIncome(categoriesIncome) {
@@ -56,7 +59,8 @@ function renderListCategoriesExpense(categoriesExpense) {
   const elDivContainerListExpense = document.querySelector(
     '.container-expense-categories-list'
   )
-  elCategoryExpense.innerHTML = ''
+  elDivContainerListExpense.innerHTML = ''
+  console.log(categoriesExpense)
   categoriesExpense.forEach(categoryExpense => {
     elCategoryExpense = generateBadgeCategoryExpense(categoryExpense)
     elDivContainerListExpense.appendChild(elCategoryExpense)

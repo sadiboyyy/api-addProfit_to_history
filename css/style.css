@@ -110,6 +110,7 @@ input[type='number'] {
   cursor: default;
   margin: 5px;
   font-size: 14px;
+  background-color: #eee6e6;
 }
 .badge-expense{
   display: inline-block;

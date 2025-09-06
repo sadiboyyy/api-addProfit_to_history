@@ -1,4 +1,4 @@
-function generateItemTransaction(transaction) {
+function generateItemTransactionIncome(transaction) {
   // body
   
   const elLi = document.createElement('li')
@@ -6,10 +6,7 @@ function generateItemTransaction(transaction) {
     elLi.setAttribute('class', 'income')
     
   }
-  if (transaction.value < 0) {
-    elLi.setAttribute('class','expense')
-    
-  }
+ 
   if (transaction.value = 0) {
     elLi.setAttribute('class','zero')
   }
@@ -17,36 +14,50 @@ function generateItemTransaction(transaction) {
   elLi.textContent = '$' + transaction.value
   return elLi
 }
+function generateItemTransactionExpense(transaction) {
+  // body
+
+  const elLi = document.createElement('li')
+  
+  if (transaction.value < 0) {
+    elLi.setAttribute('class', 'expense')
+  }
+  if ((transaction.value = 0)) {
+    elLi.setAttribute('class', 'zero')
+  }
+
+  elLi.textContent = '$' + transaction.value
+  return elLi
+}
 function generateBadgeCategoryIncome(categoryIncome) {
   // body
-  const elDivCategoryIncome = document.createElement('div')
-  elDivCategoryIncome.setAttribute('class', 'category-income')
+ 
 
   const elSpan = document.createElement('span')
-  elSpan.setAttribute('class', 'badge')
+  elSpan.setAttribute('class', 'badge-income')
   const elI = document.createElement('i')
 
-  elI.textContent = categoryIncome+ '$'
+  elI.textContent = categoryIncome
   const elInputBtnDltIncome = document.createElement('input')
   elInputBtnDltIncome.setAttribute('type', 'button')
 
   elInputBtnDltIncome.setAttribute('value', '❎')
+  elInputBtnDltIncome.setAttribute('class','input-dlt-income')
   // elInputBtnDltIncome = onClickButtonCategoryIncomeRemove
-  elDivCategoryIncome.appendChild(elSpan)
+ 
   elSpan.appendChild(elI)
   elSpan.appendChild(elInputBtnDltIncome)
-  return elDivCategoryIncome
+  return elSpan
 }
 function generateBadgeCategoryExpense(categoryExpense) {
   // body
-  const elDivCategoryExpense = document.createElement('div')
-  elDivCategoryExpense.setAttribute('class', 'category-expense')
+
 
   const elSpan = document.createElement('span')
-  elSpan.setAttribute('class', 'badge')
+  elSpan.setAttribute('class', 'badge-expense')
 
   const elI = document.createElement('i')
-  elI.textContent = categoryExpense + '$'
+  elI.textContent = categoryExpense 
 
   const elInputBtnDltExpense = document.createElement('input')
   elInputBtnDltExpense.setAttribute('type', 'button')
@@ -54,10 +65,10 @@ function generateBadgeCategoryExpense(categoryExpense) {
 
   elInputBtnDltExpense.onclick = onClickButtonCategoryExpenseRemove
 
-  elDivCategoryExpense.appendChild(elSpan)
+ 
   elSpan.appendChild(elI)
   elSpan.appendChild(elInputBtnDltExpense)
-  return elDivCategoryExpense
+  return elSpan
 }
 function generateOptionCategory(category) {
   const elOption = document.createElement('option')

@@ -2,26 +2,38 @@ function onClickButtonTransactionIncomeAdd() {
   const elInputIncomeAdd = document.querySelector('#incomeamount')
   const number = +elInputIncomeAdd.value
   if (number > 0) {
-    handleAddIncome(number)
+    renderInputAddTransactionIncome(number)
+    handleAddTransactionIncome(transactions)
+    elInputIncomeAdd.value = ''
+    elInputIncomeAdd.focus()
+ 
   }
 }
 function onClickButtonTransactionExpenseAdd() {
   const elInputExpenseAdd = document.querySelector('#expenseamount')
-  const number = elInputExpenseAdd.value
+  const number = +elInputExpenseAdd.value
   console.log(number)
 
   if (number < 0) {
-    handleAddExpense(number)
+    renderInputAddTransactionExpense(number)
+    handleAddTransactionExpense(transactions)
     elInputExpenseAdd.value = ''
     elInputExpenseAdd.focus()
   }
 }
+
 function onClickButtonCategoryIncomeAdd() {
   const elInputCategoryIncome = document.querySelector('#input-category-income')
   const textIncome = elInputCategoryIncome.value
+  const firstIncome = elInputCategoryIncome.index(0)
+  firstIncome.selected 
+  
   console.log('dfs')
   if (textIncome !== '') {
+    
+   
     handleAddOptionIncome(textIncome)
+   
     console.log(textIncome)
   }
 }

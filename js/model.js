@@ -1,5 +1,5 @@
-const categoriesIncome = ['биржа']
-const categoriesExpense = []
+const categoriesIncome = ['биржа!', 'инвестиции', 'недвижимость', 'акции']
+const categoriesExpense = ['продукты питания', 'комуналка', 'проезд']
 const transactions = [
   // {
   //   value: 42,
@@ -7,6 +7,7 @@ const transactions = [
   //   type: 'income'
   // },
 ]
+
 
 function sumTransactions() {
   let sum = 0

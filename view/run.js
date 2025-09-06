@@ -8,7 +8,7 @@ const elDltCategoryIncome = document.querySelector('.input-dlt-income')
 elDltCategoryIncome.onclick = onClickButtonCategoryIncomeRemove
 
 const elDltCategoryExpense = document.querySelector('.input-dlt-expense')
-elDltCategoryExpense.onclick = onClickButtonCategoryExpenseRemove
+// elDltCategoryExpense.onclick = onClickButtonCategoryExpenseRemove
 
 const elBtnAddCategoryIncome = document.querySelector(
   '#btn-add-category-income'

@@ -7,8 +7,8 @@ function handleAddIncome(incomeValue, category) {
     renderSelectCategoriesIncome(categoriesIncome)
     renderListTransactions(transactions)
     renderInputAddCategoryIncome(category)
-    renderListCategoriesIncome(transactions)
-    renderInputAddTransactionIncome()
+    renderListCategoriesIncome(categoriesIncome)
+   
   }
   console.log('функция  handleadleincome вызвана')
 }
@@ -21,7 +21,7 @@ function handleAddExpense(expenseValue, category) {
     renderSelectCategoriesExpense(categoriesExpense)
     renderListTransactions(transactions)
     renderInputAddCategoryExpense(category)
-    renderListCategoriesExpense(transactions)
+    renderListCategoriesExpense(categoriesExpense)
   }
   console.log('функция  handleaddexpense вызвана')
 }
@@ -29,13 +29,17 @@ function handleAddOptionIncome(incomeValue) {
   if (incomeValue !== '') {
     addCategoryIncome(incomeValue)
     renderSelectCategoriesIncome(categoriesIncome)
+    renderListCategoriesExpense(categoriesExpense)
   }
 }
 function handleAddOptionExpense(expenseValue) {
   if (expenseValue !== '') {
     addCategoryExpense(expenseValue)
-    renderSelectCategoriesExpense(categoriesExpense)
+    renderListCategoriesIncome(categoriesIncome)
+    
+    
   }
+  console.log(expenseValue)
 }
 
 function handleRemoveCategoryIncome(categoryIncome) {
@@ -59,7 +63,7 @@ function handleAddTransactionIncome(transaction) {
   }
 }
 
-function handleAddTransactionOutcome(transaction) {
+function handleAddTransactionExpense(transaction) {
   if (transaction !== '') {
     addTransaction(transaction)
     let sum = sumTransactions()
@@ -68,3 +72,5 @@ function handleAddTransactionOutcome(transaction) {
     renderListTransactions(transactions)
   }
 }
+renderListCategoriesIncome(categoriesIncome)
+renderListCategoriesExpense(categoriesExpense)
