@@ -6,7 +6,6 @@ function onClickButtonTransactionIncomeAdd() {
     handleAddTransactionIncome(transactions)
     elInputIncomeAdd.value = ''
     elInputIncomeAdd.focus()
- 
   }
 }
 function onClickButtonTransactionExpenseAdd() {
@@ -25,17 +24,7 @@ function onClickButtonTransactionExpenseAdd() {
 function onClickButtonCategoryIncomeAdd() {
   const elInputCategoryIncome = document.querySelector('#input-category-income')
   const textIncome = elInputCategoryIncome.value
-  const firstIncome = elInputCategoryIncome.index(0)
-  firstIncome.selected 
-  
-  console.log('dfs')
-  if (textIncome !== '') {
-    
-   
-    handleAddOptionIncome(textIncome)
-   
-    console.log(textIncome)
-  }
+  handleAddOptionIncome(textIncome)
 }
 function onClickButtonCategoryIncomeRemove(e) {
   const elButton = e.target
@@ -79,4 +68,8 @@ function onClickButtonCategoryExpenseRemove(e) {
   const textExpense = elIExpense.textContent
   handleRemoveCategoryExpense(textExpense)
   console.log('кнопка затрат удалена')
+}
+
+function onLoadApp() {
+  handleLoadApp()
 }

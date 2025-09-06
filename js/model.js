@@ -1,13 +1,12 @@
 const categoriesIncome = ['биржа!', 'инвестиции', 'недвижимость', 'акции']
 const categoriesExpense = ['продукты питания', 'комуналка', 'проезд']
 const transactions = [
-  // {
-  //   value: 42,
-  //   category: 'подарок',
-  //   type: 'income'
-  // },
+  {
+    value: 42,
+    category: 'подарок',
+    type: 'income',
+  },
 ]
-
 
 function sumTransactions() {
   let sum = 0
@@ -40,10 +39,10 @@ function addTransaction(type, value, category) {
 }
 
 function addCategoryIncome(category) {
-  categoriesIncome.push(category)
+  categoriesIncome.unshift(category)
 }
 function addCategoryExpense(category) {
-  categoriesExpense.push(category)
+  categoriesExpense.unshift(category)
 }
 function removeCategoryIncome(category) {
   const idx = categoriesIncome.indexOf(category)
