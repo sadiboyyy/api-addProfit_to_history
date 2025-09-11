@@ -101,9 +101,9 @@ input[type='number'] {
   background: hsl(0, 33%, 85%);
 }
 
-.badge-income  {
+.badge-income {
   display: inline-block;
-  border: 4px solid #52e906;
+  border: 4px solid forestgreen;
   padding: 5px;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 #2345;
@@ -112,9 +112,9 @@ input[type='number'] {
   font-size: 14px;
   background-color: #eee6e6;
 }
-.badge-expense{
+.badge-expense {
   display: inline-block;
-  border: 4px solid #e93b06;
+  border: 4px solid firebrick;
   padding: 5px;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 #2345;
@@ -149,13 +149,13 @@ input[type='button'] {
 }
 #btn-delete-expense {
   border-radius: 5px;
-font-size: 16px;
-color: #e93b06;
+  font-size: 16px;
+  color: firebrick;
 }
 #btn-delete-income {
   border-radius: 5px;
   font-size: 16px;
-  color: #e93b06;
+  color: firebrick;
 }
 
 .balance {
@@ -168,19 +168,17 @@ color: #e93b06;
   position: relative;
 }
 
+.income {
+  color: forestgreen;
+}
 
-  .income {
-    color: lightgreen;
-  }
-
-  .expense {
-    color: lightcoral;
-  }
-  .zero{
-    color: #234;
-    text-decoration: dashed rgb(181, 217, 110);
-  }
-
+.expense {
+  color: lightcoral;
+}
+.zero {
+  color: #234;
+  text-decoration: dashed forestgreen;
+}
 
 .footer {
   margin-top: 100px;

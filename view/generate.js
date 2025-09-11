@@ -1,24 +1,29 @@
 function generateItemTransactionIncome(transaction) {
   // body
-  
+
+  console.log('>>', transaction)
+  console.log(transaction.value)
+
   const elLi = document.createElement('li')
   if (transaction.value > 0) {
     elLi.setAttribute('class', 'income')
-    
   }
- 
-  if (transaction.value = 0) {
-    elLi.setAttribute('class','zero')
+
+  if (transaction.value === 0) {
+    elLi.setAttribute('class', 'zero')
   }
-    
+
   elLi.textContent = '$' + transaction.value
+
+  console.log(elLi)
+
   return elLi
 }
 function generateItemTransactionExpense(transaction) {
   // body
 
   const elLi = document.createElement('li')
-  
+
   if (transaction.value < 0) {
     elLi.setAttribute('class', 'expense')
   }
@@ -31,7 +36,6 @@ function generateItemTransactionExpense(transaction) {
 }
 function generateBadgeCategoryIncome(categoryIncome) {
   // body
- 
 
   const elSpan = document.createElement('span')
   elSpan.setAttribute('class', 'badge-income')
@@ -42,9 +46,9 @@ function generateBadgeCategoryIncome(categoryIncome) {
   elInputBtnDltIncome.setAttribute('type', 'button')
 
   elInputBtnDltIncome.setAttribute('value', '❎')
-  elInputBtnDltIncome.setAttribute('class','input-dlt-income')
+  elInputBtnDltIncome.setAttribute('class', 'input-dlt-income')
   // elInputBtnDltIncome = onClickButtonCategoryIncomeRemove
- 
+
   elSpan.appendChild(elI)
   elSpan.appendChild(elInputBtnDltIncome)
   return elSpan
@@ -52,12 +56,11 @@ function generateBadgeCategoryIncome(categoryIncome) {
 function generateBadgeCategoryExpense(categoryExpense) {
   // body
 
-
   const elSpan = document.createElement('span')
   elSpan.setAttribute('class', 'badge-expense')
 
   const elI = document.createElement('i')
-  elI.textContent = categoryExpense 
+  elI.textContent = categoryExpense
 
   const elInputBtnDltExpense = document.createElement('input')
   elInputBtnDltExpense.setAttribute('type', 'button')
@@ -65,7 +68,6 @@ function generateBadgeCategoryExpense(categoryExpense) {
 
   elInputBtnDltExpense.onclick = onClickButtonCategoryExpenseRemove
 
- 
   elSpan.appendChild(elI)
   elSpan.appendChild(elInputBtnDltExpense)
   return elSpan
@@ -82,5 +84,4 @@ function generateOptionTitle(category) {
   elOptionTitle.textContent = category
   elOptionTitle.value = category
   return elOptionTitle
-  
 }
