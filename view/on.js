@@ -31,7 +31,6 @@ function onClickButtonCategoryIncomeAdd() {
   console.log('dfs')
   if (textIncome !== '') {
     
-   
     handleAddOptionIncome(textIncome)
    
     console.log(textIncome)
