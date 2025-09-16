@@ -56,9 +56,10 @@ function onClickButtonCategoryIncomeRemove(e) {
   const elButton = e.target
 
   const elSpan = elButton.closest('span')
-  const elIExpense = elSpan.querySelector('i')
-  const textExpense = elIExpense.textContent
-  handleRemoveCategoryIncome(textExpense)
+  const elIncome = elSpan.querySelector('i')
+  const textIncome = elIncome.textContent
+  handleRemoveCategoryIncome(textIncome)
+  console.log('кнопка заработка удалена')
 }
 function onClickButtonCategoryExpenseRemove(e) {
   const elButton = e.target

@@ -44,13 +44,14 @@ function addCategoryIncome(category) {
 function addCategoryExpense(category) {
   categoriesExpense.unshift(category)
 }
-function removeCategoryIncome(category) {
-  const idx = categoriesIncome.indexOf(category)
-  if (idx > -1) categoriesIncome.splice(idx, 1)
+function removeCategoryIncome(value) {
+  const indexIncome = categoriesIncome.includes(value)
+   categoriesIncome.splice(indexIncome, 1)
+   console.log(indexIncome)
 }
-function removeCategoryExpense(category) {
-  const idx = categoriesExpense.indexOf(category)
-  if (idx > -1) categoriesExpense.splice(idx, 1)
+function removeCategoryExpense() {
+  const indexExpense = categoriesExpense.indexOf(0)
+   categoriesExpense.splice(indexExpense,1)
 }
 
 // addCategoryIncome('инвестиции')

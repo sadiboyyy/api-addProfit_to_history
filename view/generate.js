@@ -47,7 +47,7 @@ function generateBadgeCategoryIncome(categoryIncome) {
 
   elInputBtnDltIncome.setAttribute('value', '❎')
   elInputBtnDltIncome.setAttribute('class', 'input-dlt-income')
-  // elInputBtnDltIncome = onClickButtonCategoryIncomeRemove
+  elInputBtnDltIncome.onclick = onClickButtonCategoryIncomeRemove
 
   elSpan.appendChild(elI)
   elSpan.appendChild(elInputBtnDltIncome)
