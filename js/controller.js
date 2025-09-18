@@ -43,13 +43,13 @@ function handleAddOptionExpense(expenseValue) {
 function handleRemoveCategoryIncome(categoryIncome) {
   if (categoryIncome !== '') {
     removeCategoryIncome(categoryIncome)
-    renderListCategoriesIncome(transactions)
+    renderListCategoriesIncome(categoriesIncome)
   }
 }
 function handleRemoveCategoryExpense(categoryExpense) {
   if (categoryExpense !== '') {
     removeCategoryExpense(categoryExpense)
-    renderListCategoriesExpense(transactions)
+    renderListCategoriesExpense(categoriesExpense)
   }
 }
 

@@ -17,8 +17,12 @@ function sumTransactions() {
   }
   return sum
 }
+addTransaction('income', 45, 'недвижимость')
+console.log(sumTransactions())
+transactions
 
 function addTransaction(type, value, category) {
+  console.log(type,value,category)
   if (type === 'income') {
     if (!categoriesIncome.includes(category)) {
       return console.log('нет такой категории доходов!!')
@@ -34,6 +38,7 @@ function addTransaction(type, value, category) {
     category: category,
     type: type,
   }
+
   transactions.push(transaction)
   console.log('добавлена транзакция')
 }
@@ -44,15 +49,29 @@ function addCategoryIncome(category) {
 function addCategoryExpense(category) {
   categoriesExpense.unshift(category)
 }
-function removeCategoryIncome(value) {
-  const indexIncome = categoriesIncome.includes(value)
-   categoriesIncome.splice(indexIncome, 1)
-   console.log(indexIncome)
+
+function removeCategoryIncome(categoryIncome) {
+  const indexIncome = categoriesIncome.indexOf(categoryIncome)
+  if (indexIncome > -1) {
+    categoriesIncome.splice(indexIncome,1)
+    console.log(indexIncome)
+    
+  }
 }
-function removeCategoryExpense() {
-  const indexExpense = categoriesExpense.indexOf(0)
-   categoriesExpense.splice(indexExpense,1)
+
+categoriesIncome
+
+function removeCategoryExpense(categoryExpense) {
+  const indexExpense = categoriesExpense.indexOf(categoryExpense)
+  if (indexExpense > -1) {
+    categoriesExpense.splice(indexExpense,1)
+    console.log(indexExpense)
+    
+  }
 }
+
+
+categoriesExpense
 
 // addCategoryIncome('инвестиции')
 // addCategoryIncome('подарок')
