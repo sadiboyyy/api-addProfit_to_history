@@ -1,7 +1,7 @@
 function generateItemTransactionIncome(transaction) {
   // body
 
-  console.log('>>', transaction)
+
   console.log(transaction.value)
 
   const elLi = document.createElement('li')
@@ -15,7 +15,7 @@ function generateItemTransactionIncome(transaction) {
 
   elLi.textContent = '$' + transaction.value
 
-  console.log(elLi)
+
 
   return elLi
 }

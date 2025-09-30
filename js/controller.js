@@ -6,7 +6,7 @@ function handleAddIncome(incomeValue, category) {
     renderH4SumTransactions(sumTransactions())
     renderSelectCategoriesIncome(categoriesIncome)
     renderListTransactions(transactions)
-    renderInputAddCategoryIncome(category)
+    renderInputAddCategoryIncome(categoriesIncome)
     renderListCategoriesIncome(categoriesIncome)
   }
   console.log('функция  handleadleincome вызвана')
@@ -19,7 +19,7 @@ function handleAddExpense(expenseValue, category) {
     renderH4SumTransactions(sumTransactions())
     renderSelectCategoriesExpense(categoriesExpense)
     renderListTransactions(transactions)
-    renderInputAddCategoryExpense(category)
+    renderInputAddCategoryExpense(categoriesExpense)
     renderListCategoriesExpense(categoriesExpense)
   }
   console.log('функция  handleaddexpense вызвана')
@@ -53,25 +53,27 @@ function handleRemoveCategoryExpense(categoryExpense) {
   }
 }
 
-function handleAddTransactionIncome(transaction) {
-  if (transaction !== '') {
-    addTransaction(transaction)
-    let sum = sumTransactions()
-    renderH4SumTransactions(sum)
-    renderInputAddTransactionIncome(transactions)
+function handleAddTransactionIncome(incomeValue,category) {
+  if (incomeValue !== '') {
+
+    addTransaction('', incomeValue,category)
+    renderH4SumTransactions(sumTransactions())
+    renderInputAddTransactionIncome()
     renderListTransactions(transactions)
   }
 }
 
-function handleAddTransactionExpense(transaction) {
-  if (transaction !== '') {
-    addTransaction(transaction)
+function handleAddTransactionExpense(expenseValue,category) {
+  if (expenseValue!== '') {
+    addTransaction('', expenseValue,category)
     let sum = sumTransactions()
     renderH4SumTransactions(sum)
-    renderInputAddTransactionExpense(transactions)
+    renderInputAddTransactionExpense()
     renderListTransactions(transactions)
   }
+  
 }
+
 
 function handleLoadApp() {
   renderListCategoriesIncome(categoriesIncome)

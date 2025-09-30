@@ -6,8 +6,10 @@ const elButtonAddCategoryIncome = document.querySelector(
 const elButtonAddCategoryExpense = document.querySelector(
   '#btn-add-category-expense'
 )
-elButtonExpenseAdd.onclick = onClickButtonTransactionIncomeAdd
-elButtonIncomeAdd.onclick = onClickButtonTransactionExpenseAdd
+const elchangeSelectCategoryIncome = document.querySelector('#income')
+elchangeSelectCategoryIncome.onchange = onClickButtonTransactionIncomeAdd
+elButtonExpenseAdd.onclick = onClickButtonTransactionExpenseAdd
+elButtonIncomeAdd.onclick = onClickButtonTransactionIncomeAdd
 elButtonAddCategoryIncome.onclick = onClickButtonCategoryIncomeAdd
 elButtonAddCategoryExpense.onclick = onClickButtonCategoryExpenseAdd
 window.onload = onLoadApp

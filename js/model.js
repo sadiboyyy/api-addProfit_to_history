@@ -59,6 +59,9 @@ function removeCategoryIncome(categoryIncome) {
   }
 }
 
+
+
+
 categoriesIncome
 
 function removeCategoryExpense(categoryExpense) {
